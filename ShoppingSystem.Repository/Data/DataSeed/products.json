@@ -1,0 +1,178 @@
+[
+    {
+        "Name": "Pumpkin Spice Latte",
+        "Description": "Classic seasonal favorite with a hint of pumpkin and spice.",
+        "Price": 220,
+        "PictureUrl": "images/products/sb-ang3.png",
+        "CategoryId": 2,
+        "BrandId": 1
+    },
+    {
+        "Name": "Hazelnut Mocha",
+        "Description": "Rich mocha blended with hazelnut flavor and topped with whipped cream.",
+        "Price": 200,
+        "PictureUrl": "images/products/sb-ang4.png",
+        "CategoryId": 3,
+        "BrandId": 2
+    },
+    {
+        "Name": "Iced Vanilla Latte",
+        "Description": "Smooth espresso combined with milk and vanilla syrup over ice.",
+        "Price": 180,
+        "PictureUrl": "images/products/sb-ang5.png",
+        "CategoryId": 2,
+        "BrandId": 1
+    },
+    {
+        "Name": "Strawberry Frappuccino",
+        "Description": "Sweet and creamy strawberry blended drink.",
+        "Price": 190,
+        "PictureUrl": "images/products/sb-ang6.png",
+        "CategoryId": 1,
+        "BrandId": 1
+    },
+    {
+        "Name": "Caramel Pecan Latte",
+        "Description": "Espresso with caramel and roasted pecan flavor.",
+        "Price": 210,
+        "PictureUrl": "images/products/sb-ang7.png",
+        "CategoryId": 2,
+        "BrandId": 2
+    },
+    {
+        "Name": "Chocolate Croissant",
+        "Description": "Flaky croissant filled with rich chocolate.",
+        "Price": 12,
+        "PictureUrl": "images/products/pastry1.png",
+        "CategoryId": 14,
+        "BrandId": 3
+    },
+    {
+        "Name": "Almond Croissant",
+        "Description": "Croissant with almond paste and slivered almonds on top.",
+        "Price": 14,
+        "PictureUrl": "images/products/pastry2.png",
+        "CategoryId": 14,
+        "BrandId": 3
+    },
+    {
+        "Name": "Tiramisu Cake",
+        "Description": "Classic Italian dessert with coffee-soaked layers and mascarpone cream.",
+        "Price": 18,
+        "PictureUrl": "images/products/cake1.png",
+        "CategoryId": 6,
+        "BrandId": 1
+    },
+    {
+        "Name": "Red Velvet Cake",
+        "Description": "Moist red velvet cake with cream cheese frosting.",
+        "Price": 17,
+        "PictureUrl": "images/products/cake2.png",
+        "CategoryId": 6,
+        "BrandId": 1
+    },
+    {
+        "Name": "Chicken Caesar Salad",
+        "Description": "Crisp romaine lettuce with grilled chicken, croutons, and Caesar dressing.",
+        "Price": 22,
+        "PictureUrl": "images/products/salad1.png",
+        "CategoryId": 8,
+        "BrandId": 4
+    },
+    {
+        "Name": "Greek Yogurt Parfait",
+        "Description": "Layered yogurt with granola and fresh berries.",
+        "Price": 15,
+        "PictureUrl": "images/products/yogurt1.png",
+        "CategoryId": 21,
+        "BrandId": 5
+    },
+    {
+        "Name": "Blueberry Muffin",
+        "Description": "Soft and moist muffin filled with blueberries.",
+        "Price": 8,
+        "PictureUrl": "images/products/muffin1.png",
+        "CategoryId": 15,
+        "BrandId": 6
+    },
+    {
+        "Name": "Chocolate Chip Cookie",
+        "Description": "Classic cookie loaded with chocolate chips.",
+        "Price": 5,
+        "PictureUrl": "images/products/cookie1.png",
+        "CategoryId": 18,
+        "BrandId": 3
+    },
+    {
+        "Name": "Iced Green Tea",
+        "Description": "Refreshing iced green tea with a hint of lemon.",
+        "Price": 12,
+        "PictureUrl": "images/products/tea1.png",
+        "CategoryId": 11,
+        "BrandId": 2
+    },
+    {
+        "Name": "Chai Latte",
+        "Description": "Spiced tea latte with steamed milk.",
+        "Price": 16,
+        "PictureUrl": "images/products/tea2.png",
+        "CategoryId": 4,
+        "BrandId": 4
+    },
+    {
+        "Name": "Vanilla Bean Smoothie",
+        "Description": "Creamy smoothie with vanilla flavor.",
+        "Price": 20,
+        "PictureUrl": "images/products/smoothie1.png",
+        "CategoryId": 12,
+        "BrandId": 5
+    },
+    {
+        "Name": "Strawberry Waffle",
+        "Description": "Crispy waffle topped with fresh strawberries and syrup.",
+        "Price": 25,
+        "PictureUrl": "images/products/waffle1.png",
+        "CategoryId": 25,
+        "BrandId": 6
+    },
+    {
+        "Name": "Chocolate Brownie",
+        "Description": "Rich and fudgy chocolate brownie.",
+        "Price": 10,
+        "PictureUrl": "images/products/brownie1.png",
+        "CategoryId": 17,
+        "BrandId": 1
+    },
+    {
+        "Name": "Iced Coffee",
+        "Description": "Cold brewed coffee served over ice.",
+        "Price": 18,
+        "PictureUrl": "images/products/icedcoffee1.png",
+        "CategoryId": 1,
+        "BrandId": 7
+    },
+    {
+        "Name": "Ham & Cheese Sandwich",
+        "Description": "Toasted sandwich with ham and melted cheese.",
+        "Price": 30,
+        "PictureUrl": "images/products/sandwich1.png",
+        "CategoryId": 16,
+        "BrandId": 6
+    },
+    {
+        "Name": "Pumpkin Spice Muffin",
+        "Description": "Seasonal pumpkin muffin with warm spices.",
+        "Price": 9,
+        "PictureUrl": "images/products/muffin2.png",
+        "CategoryId": 15,
+        "BrandId": 3
+    },
+    {
+        "Name": "Caramel Waffle",
+        "Description": "Waffle topped with caramel sauce and whipped cream.",
+        "Price": 27,
+        "PictureUrl": "images/products/waffle2.png",
+        "CategoryId": 25,
+        "BrandId": 2
+    }
+]

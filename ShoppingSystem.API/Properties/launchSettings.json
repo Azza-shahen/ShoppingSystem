@@ -1,20 +1,26 @@
-﻿{
+﻿//This file:For use during development only.
+//Used by Visual Studio/dotnet run. Not distributed with the project.
+
+{
   "$schema": "http://json.schemastore.org/launchsettings.json",
+  // Settings related to IIS Express (local development server)
   "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
+    "windowsAuthentication": false, //It will not require logging in using a Windows account
+    "anonymousAuthentication": true, // Anyone can enter without logging in
     "iisExpress": {
-      "applicationUrl": "http://localhost:58930",
-      "sslPort": 44355
+      "applicationUrl": "http://localhost:58930", // The base URL used when running via IIS Express (http)
+      "sslPort": 44355 //(https)
     }
   },
+  // Profiles: for how the app can be launched
   "profiles": {
+    // Profile for running with HTTP only
     "http": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:5233",
+      "commandName": "Project", // Run the main project (not IIS Express)
+      "dotnetRunMessages": true, // Show messages in the console when you run with `dotnet run` 
+      "launchBrowser": true, // Automatically open browser when the project runs
+      "launchUrl": "swagger", // The first page to open is the Swagger UI
+      "applicationUrl": "http://localhost:5233", // The URL to use when running the project with HTTP
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -24,7 +30,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7226;http://localhost:5233",
+      "applicationUrl": "https://localhost:7226;http://localhost:5233", // App runs on both HTTPS and HTTP
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
