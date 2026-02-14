@@ -22,7 +22,7 @@ internal class ProductConfigurations : IEntityTypeConfiguration<Product>
                .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasOne(p => p.Category)
-               .WithMany(C => C.Products)
+               .WithMany(/* C => C.Products */)
                .HasForeignKey(p => p.CategoryId);
     }
 }

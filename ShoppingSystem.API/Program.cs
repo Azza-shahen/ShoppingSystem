@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using ShoppingSystem.Core.Interfaces.Repositories;
+using ShoppingSystem.Repository;
 using ShoppingSystem.Repository.Data;
 using System;
 
@@ -28,6 +30,15 @@ namespace ShoppingSystem.API
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            /*
+            builder.Services.AddScoped<IGenericRepository<Product>,IGenericRepository<Product>>();
+            builder.Services.AddScoped<IGenericRepository<ProductBrand>,IGenericRepository<ProductBrand>>();
+            builder.Services.AddScoped<IGenericRepository<ProductCategory>,IGenericRepository<ProductCategory>>();
+             */
+            //OR
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+
             #endregion
 
             var app = builder.Build();
@@ -42,7 +53,7 @@ namespace ShoppingSystem.API
             {
                 // Apply any pending migrations to the database when application Run
                 await _dbcontext.Database.MigrateAsync();//Update-Database
-            
+                await ShoppingSystemContextSeed.SeedAsync(_dbcontext);//Data Seeding
             }
             catch (Exception ex)
             {

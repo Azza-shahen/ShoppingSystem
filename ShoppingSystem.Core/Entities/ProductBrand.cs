@@ -5,6 +5,6 @@ public class ProductBrand : BaseModel
     //public  required string Name { get; set; } 
 
 
-    public ICollection<Product> Products { get; set; } = new HashSet<Product>(); // one-to-many
+    //public ICollection<Product> Products { get; set; } = new HashSet<Product>(); // one-to-many
 }
 

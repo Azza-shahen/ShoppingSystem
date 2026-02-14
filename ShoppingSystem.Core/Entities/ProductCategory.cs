@@ -4,7 +4,7 @@ public class ProductCategory : BaseModel
     public string Name { get; set; } = null!;
 
     //Navigation Properties
-    public ICollection<Product> Products { get; set; } = new HashSet<Product>();
+   // public ICollection<Product> Products { get; set; } = new HashSet<Product>();
     /*  
        * I used ICollection because 
           1- it's a flexible interface that works great
