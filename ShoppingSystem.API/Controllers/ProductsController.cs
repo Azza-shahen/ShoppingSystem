@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using ShoppingSystem.Core.Entities;
 using ShoppingSystem.Core.Interfaces.Repositories;
+using ShoppingSystem.Core.Specifications;
+using ShoppingSystem.Core.Specifications.ProductSpecifications;
 
 namespace ShoppingSystem.API.Controllers
 {
@@ -12,14 +14,16 @@ namespace ShoppingSystem.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            var products = await _productsRepo.GetAllAsync();
+            var spec = new ProductWithBrandAndCategorySpecifications();
+            var products = await _productsRepo.GetAllWithSpecAsync(spec);
             return Ok(products);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _productsRepo.GetAsync(id);
+            var spec = new ProductWithBrandAndCategorySpecifications(id);
+            var product = await _productsRepo.GetWithSpecAsync(spec);
             if (product is null)
                 return NotFound(); //404
 
