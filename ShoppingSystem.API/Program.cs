@@ -1,13 +1,9 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using ShoppingSystem.API.Errors;
+using ShoppingSystem.API.Extensions;
 using ShoppingSystem.API.Mapping;
-using ShoppingSystem.Core.Interfaces.Repositories;
-using ShoppingSystem.Repository;
-using ShoppingSystem.Repository.Data;
-using System;
+using ShoppingSystem.API.Middlewares;
 using System.Reflection;
 
 namespace ShoppingSystem.API
@@ -24,50 +20,9 @@ namespace ShoppingSystem.API
             // Register all required Web API services (e.g., controllers, model binding, routing)
             builder.Services.AddControllers();
 
-            //This is an internal service that helps Swagger identify all the endpoints in the project (specifically Minimal APIs or API Explorer).
-            builder.Services.AddEndpointsApiExplorer();
-
-            // Registers Swagger (OpenAPI) generator service (used to generate Swagger docs for your API)
-            builder.Services.AddSwaggerGen();
-            builder.Services.AddDbContext<ShoppingSystemDbContext>(options =>
-            {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-            });
-
-            /*
-            builder.Services.AddScoped<IGenericRepository<Product>,IGenericRepository<Product>>();
-            builder.Services.AddScoped<IGenericRepository<ProductBrand>,IGenericRepository<ProductBrand>>();
-            builder.Services.AddScoped<IGenericRepository<ProductCategory>,IGenericRepository<ProductCategory>>();
-             */
-            //OR
-            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
-            //builder.Services.AddAutoMapper(typeof(MappingProfile));//Registers only from the given type and nearby classes. Limited scope.
-            builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(MappingProfile)));//Scans the entire assembly for all classes inheriting from Profile. Broader and safer.
-
-            // Configure how ASP.NET Core handles automatic model validation errors
-            builder.Services.Configure<ApiBehaviorOptions>(options =>
-            {
-                // Override the default response returned when ModelState is invalid
-                options.InvalidModelStateResponseFactory = context =>
-                {
-                    // Extract validation errors from ModelState
-                    var errors = context.ModelState
-                        .Where(x => x.Value?.Errors.Count > 0)  // Filter entries that actually contain errors
-                        .SelectMany(x => x.Value!.Errors)         
-                        .Select(x => x.ErrorMessage)// Select only the error message text
-                        .ToList();
-
-                    // Create a custom validation response object
-                    var response = new ApiValidationErrorResponse
-                    {
-                        Errors = errors
-                    };
-
-                    return new BadRequestObjectResult(response);
-                };
-            });
-
+            builder.Services.AddSwaggerServices();
+            builder.Services.AddWebServices(builder);
+           
             #endregion
 
             var app = builder.Build();
@@ -107,10 +62,10 @@ namespace ShoppingSystem.API
 
             if (app.Environment.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerMiddlewares();
             }
-
+            app.UseMiddleware<ExceptionMiddleware>();
+            app.UseStatusCodePagesWithReExecute("/errors/{0}");
             app.UseHttpsRedirection();// Redirect all HTTP requests to HTTPS
             app.UseStaticFiles();// Enables serving static files (wwwroot) such as images, CSS, JavaScript, and other client-side assets
             app.UseAuthorization();// Enable authorization middleware (e.g., [Authorize] attributes)
@@ -125,7 +80,7 @@ namespace ShoppingSystem.API
             app.MapControllers();
             #endregion
 
-          
+
             // Start the application (Starts listening for HTTP requests)
             app.Run();
         }

@@ -1,5 +1,5 @@
 ﻿namespace ShoppingSystem.Core.Entities;
-public class Product:BaseModel
+public class Product : BaseModel
 {
     public string Name { get; set; } = null!;
     public string Description { get; set; } = null!;

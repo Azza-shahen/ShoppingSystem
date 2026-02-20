@@ -1,6 +1,4 @@
-﻿using ShoppingSystem.Core.Entities;
-
-namespace ShoppingSystem.API.DTOs
+﻿namespace ShoppingSystem.API.DTOs
 {
     public class ProductDto
     {

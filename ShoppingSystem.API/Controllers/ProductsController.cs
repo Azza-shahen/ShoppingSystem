@@ -1,17 +1,12 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingSystem.API.Errors;
-using ShoppingSystem.Core.Entities;
-using ShoppingSystem.Core.Interfaces.Repositories;
-using ShoppingSystem.Core.Specifications;
 using ShoppingSystem.Core.Specifications.ProductSpecifications;
 
 namespace ShoppingSystem.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController(IGenericRepository<Product> _productsRepo,IMapper _mapper) : BaseApiController
+    public class ProductsController(IGenericRepository<Product> _productsRepo, IMapper _mapper) : BaseApiController
     {
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
@@ -21,7 +16,9 @@ namespace ShoppingSystem.API.Controllers
 
             return Ok(_mapper.Map<IEnumerable<Product>, IEnumerable<ProductDto>>(products));
         }
-
+        // This helps Swagger generate accurate API documentation.
+        [ProducesResponseType(typeof(ProductDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -30,7 +27,7 @@ namespace ShoppingSystem.API.Controllers
             if (product is null)
                 return NotFound(new ApiResponse(404));
 
-            return Ok(_mapper.Map<Product,ProductDto>(product));//200
+            return Ok(_mapper.Map<Product, ProductDto>(product));//200
         }
     }
 }
